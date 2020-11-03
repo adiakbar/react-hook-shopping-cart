@@ -22,11 +22,16 @@ const CartContextProvider = ({children}) => {
     dispatch({type: 'CLEAR'})
   }
 
+  const handleCheckout = () => {
+    dispatch({type: 'CHECKOUT'})
+  }
+
   const contextValues = {
     ...state,
     addProduct,
     increase,
-    clearCart
+    clearCart,
+    handleCheckout
   }
 
   return (

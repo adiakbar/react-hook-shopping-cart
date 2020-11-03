@@ -8,8 +8,6 @@ import CartProducts from './CartProducts'
 const Cart = () => {
   const {totalPrice, itemCount, cartItems, clearCart, handleCheckout, checkout} = useContext(CartContext)
 
-  console.log(cartItems)
-
   return (
     <Layout title="Cart" description="This is the Cart Page">
       <div className="text-center mt-5">

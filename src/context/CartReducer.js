@@ -30,6 +30,13 @@ export const CartReducer = (state, action) => {
         cartItems
       }
 
+    case "CLEAR":
+      return {
+        ...state,
+        ...sumItems([]),
+        cartItems: [],
+      }
+
     default:
       return state
   }

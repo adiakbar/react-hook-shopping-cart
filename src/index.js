@@ -9,15 +9,13 @@ import ProductsContextProvider from './context/ProductsContext'
 import CartContextProvider from './context/CartContext'
 
 ReactDOM.render(
-  <React.StrictMode>
-    <HelmetProvider>
-      <ProductsContextProvider>
-        <CartContextProvider>
-          <Routes />
-        </CartContextProvider>
-      </ProductsContextProvider>
-    </HelmetProvider>
-  </React.StrictMode>,
+  <HelmetProvider>
+    <ProductsContextProvider>
+      <CartContextProvider>
+        <Routes />
+      </CartContextProvider>
+    </ProductsContextProvider>
+  </HelmetProvider>,
   document.getElementById('root')
 );
 

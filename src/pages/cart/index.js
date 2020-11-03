@@ -3,9 +3,12 @@ import {Link} from 'react-router-dom'
 import Layout from '../../components/Layout'
 import {CartContext} from '../../context/CartContext'
 import { formatNumber } from '../../helpers/utils'
+import CartProducts from './CartProducts'
 
 const Cart = () => {
   const {totalPrice, itemCount, cartItems, clearCart, handleCheckout, checkout} = useContext(CartContext)
+
+  console.log(cartItems)
 
   return (
     <Layout title="Cart" description="This is the Cart Page">
@@ -16,6 +19,14 @@ const Cart = () => {
 
       <div className="row no-gutters justify-content-center">
         <div className="col-sm-9 p-3">
+          {
+            cartItems.length > 0 ?
+            <CartProducts /> :
+            <div className="p-3 text-center text-muted">
+              Your cart is empty
+            </div>
+          }
+
 
           {checkout && 
             <div className="p-3 text-center text-success">

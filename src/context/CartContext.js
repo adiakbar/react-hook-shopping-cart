@@ -14,9 +14,14 @@ const CartContextProvider = ({children}) => {
     dispatch({type: 'ADD_ITEM', payload})
   }
 
+  const increase = payload => {
+    dispatch({type: 'INCREASE', payload})
+  }
+
   const contextValues = {
     ...state,
-    addProduct
+    addProduct,
+    increase
   }
 
   return (

@@ -7,7 +7,7 @@ import styles from './ProductsGrid.module.scss';
 
 const ProductsGrid = () => {
   const {products} = useContext(ProductsContext)
-  const {cartItems, addProduct} = useContext(CartContext)
+  const dataCart = useContext(CartContext)
   
   return (
     <div className={styles.p__container}>
@@ -30,8 +30,7 @@ const ProductsGrid = () => {
             <ProductItem 
               key={product.id} 
               product={product}
-              cartItems={cartItems}
-              addProduct={addProduct}
+              dataCart={dataCart}
             />
           ))
         }

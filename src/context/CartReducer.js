@@ -12,11 +12,24 @@ export const CartReducer = (state, action) => {
         const cartItems = [...state.cartItems, {...action.payload, quantity: 1}]
         return {
           ...state,
+          ...sumItems(cartItems),
           cartItems
         }
       } else {
         return state
-      }  
+      }
+
+    case "INCREASE":
+      const cartItems = [...state.cartItems]
+      const index = cartItems.findIndex(item => item.id === action.payload.id)
+      cartItems[index].quantity++
+
+      return {
+        ...state,
+        ...sumItems(cartItems),
+        cartItems
+      }
+
     default:
       return state
   }

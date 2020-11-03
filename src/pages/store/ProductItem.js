@@ -2,7 +2,9 @@ import React from 'react'
 
 import {formatNumber} from '../../helpers/utils'
 
-const ProductItem = ({product, cartItems, addProduct}) => {
+const ProductItem = ({product, dataCart}) => {
+
+  const {cartItems, addProduct, increase} = dataCart
 
   const notInCart = product => {
     return !cartItems.find(item => item.id === product.id)
@@ -21,7 +23,7 @@ const ProductItem = ({product, cartItems, addProduct}) => {
         
         {
           !notInCart(product) &&
-          <button className="btn btn-outline-primary btn-sm">Add More</button> // false
+          <button className="btn btn-outline-primary btn-sm" onClick={() => increase(product)}>Add More</button> // false
         }
       </div>
     </div>
